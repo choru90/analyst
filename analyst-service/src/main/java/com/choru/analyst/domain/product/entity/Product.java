@@ -1,12 +1,14 @@
 package com.choru.analyst.domain.product.entity;
 
 import jakarta.persistence.*;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 
 @Entity
+@NoArgsConstructor
 public class Product {
 
     @Id
@@ -32,6 +34,11 @@ public class Product {
 
     public static Product of(String name, Integer price){
         return new Product(name, price);
+    }
+
+    public void update(String name, Integer price){
+        this.name = name;
+        this.price = price;
     }
 
 
